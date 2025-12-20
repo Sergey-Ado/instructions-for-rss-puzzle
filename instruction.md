@@ -2,9 +2,9 @@
 
 ## 1. Создание проекта с помощью Vite
    1. Перейти в корень репозитория, ветка `main`
-   2. Создать от ветки `main` новую ветку `chore/RSS-PZ-35_CreateProjectAndInstallPackages`
+   2. Создать от ветки `main` новую ветку `chore/RSS-PZ-34_CreateProjectAndInstallPackages`
       ```
-      git checkout -b chore/RSS-PZ-35_CreateProjectAndInstallPackages
+      git checkout -b chore/RSS-PZ-34_CreateProjectAndInstallPackages
       ```
    3. Запустить создание проекта `rss-puzzle` с помощью команды:
       ```
@@ -72,7 +72,7 @@
       ```
       npm install -D eslint @eslint/compat @eslint/js eslint-config-airbnb-extended eslint-import-resolver-typescript typescript-eslint prettier eslint-plugin-prettier eslint-config-prettier @stylistic/eslint-plugin@^3.1.0 eslint-plugin-import-x
       ```
-   5. Заменить в файле eslint.config.mjs тексе
+   5. Заменить в файле `eslint.config.mj`s текст
       ```
         // Prettier Config
         {
@@ -113,7 +113,7 @@
         },
 
      ```
-  7. Создать файл .prettierrc.json и скопировать в него
+  7. Создать файл `.prettierrc.json` и скопировать в него
      ```
         {
            "tabWidth": 2,
@@ -135,11 +135,30 @@
      "lint": "npx eslint src",
   9. Запустить форматтер:
       ```
-         npm run format;
+      npm run format;
       ```
-  10. Удалить файлы по умолчанию
-  11. Закончить изменения:
+  10. Удалить содержимое файла `main.ts` и файлы `counter.ts` и `typescript.svg`
+  11. Закоммитить изменения:
       ```
       git add -A
       git commit -m "chore: add eslint and prettier"
       ```
+## 3. Установка stylelint and commitlint (по желанию)
+  1. Установить `stylelint` следующей командой
+     ```
+     npm create stylelint@latest
+     ```
+  2. В файле `stylelint.config.mjs` в массив extends добавить `stylelint-config-clean-order`
+  3. Установить `commitlint` следующей командой
+     ```
+     npm install -D @commitlint/cli @commitlint/config-conventional
+     ```
+  4. Настроить `commitlint` следующей командой
+     ```
+     echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+     ```
+  5. Закоммитить изменения
+     ```
+     git add -A
+     git commit -m "chore: add stylelint and commitlint"
+     ```
