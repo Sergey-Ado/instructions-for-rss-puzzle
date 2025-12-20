@@ -179,3 +179,22 @@
      git add -A
      git commit -m "chore: add validate-branch-name"
      ```
+## 5. Установка lint-staged
+  1. Установить `lint-staged`
+     ```
+     npm install --save-dev lint-staged
+     ```
+  2. В папке `rss-puzzle` создать файл `.lintstagedrc.json` и в негоо вставить следующий текст
+     ```json
+     {
+       "src/**/*.ts": ["npm run ci:format"],
+       "src/**/*.css": ["npm run stylelint"],
+       "src/**/*.html": ["npm run ci:format"]
+     }
+     ```
+  3. Если `stylelint` не устанавливался, то удалить строку `"src/**/*.css": ["npm run stylelint"],`
+  4. Закоммитить изменения
+     ```
+     git add -A
+     git commit -m "chore: add lint-staged"
+     ```
