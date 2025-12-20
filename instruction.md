@@ -74,59 +74,58 @@
       ```
    5. Заменить в файле `eslint.config.mj`s текст
       ```
-        // Prettier Config
-        {
-          name: 'prettier/config',
-          rules: {
-            ...prettierConfigRules,
-            'prettier/prettier': 'error',
-          },
+      // Prettier Config
+      {
+        name: 'prettier/config',
+        rules: {
+          ...prettierConfigRules,
+          'prettier/prettier': 'error',
         },
+      },
       ```
       на текст
       ```
-        // Prettier Config
-        {
-          name: 'prettier/config',
-          rules: {
-            ...prettierConfigRules,
-            'prettier/prettier': [
-              'error',
-              {
-                singleQuote: true,
-                endOfLine: 'auto',
-              },
-            ],
-          },
+      // Prettier Config
+      {
+        name: 'prettier/config',
+        rules: {
+          ...prettierConfigRules,
+          'prettier/prettier': [
+            'error',
+            {
+              singleQuote: true,
+              endOfLine: 'auto',
+            },
+          ],
         },
+      },
       ```
   6. Добавить правила для Typescript:
      ```
-        // Strict TypeScript Config
-        rules.typescript.typescriptEslintStrict,
-        {
-          rules: {
-           '@typescript-eslint/explicit-function-return-type': 'error',  // по желанию
-           '@typescript-eslint/explicit-member-accessibility': 'error',  // по желанию
-           'max-lines-per-function': ['error', 40],
-          },
-        },
-
+     // Strict TypeScript Config
+     rules.typescript.typescriptEslintStrict,
+     {
+       rules: {
+         '@typescript-eslint/explicit-function-return-type': 'error',  // по желанию
+         '@typescript-eslint/explicit-member-accessibility': 'error',  // по желанию
+         'max-lines-per-function': ['error', 40],
+       },
+     },
      ```
-  7. Создать файл `.prettierrc.json` и скопировать в него
+  7. В папке `rss-puzzle` создать файл `.prettierrc.json` и скопировать в него
      ```
-        {
-           "tabWidth": 2,
-           "useTabs": false,
-           "singleQuote": true,
-           "semi": true,
-           "bracketSpacing": true,
-           "arrowParens": "avoid",
-           "trailingComma": "es5",
-           "bracketSameLine": true,
-           "printWidth": 80,
-           "endOfLine": "auto"
-         }
+     {
+       "tabWidth": 2,
+       "useTabs": false,
+       "singleQuote": true,
+       "semi": true,
+       "bracketSpacing": true,
+       "arrowParens": "avoid",
+       "trailingComma": "es5",
+       "bracketSameLine": true,
+       "printWidth": 80,
+       "endOfLine": "auto"
+     }
      ```
   8. Прописать скрипты:
      ```
@@ -161,4 +160,22 @@
      ```
      git add -A
      git commit -m "chore: add stylelint and commitlint"
+     ```
+## 4. Установка validate-branch-name
+  1. Установить `validate-branch-name
+     ```
+     npm i -D validate-branch-name
+     ```
+  2. В папке `rss-puzzle` создать файл `.validate-branch-namerc.json` и в него вставить следующий текст
+     ```json
+     {
+       "pattern": "^(feat|chore)\/RSS-PZ-[0-9]{2}_[a-zA-Z]+$",
+       "errorMsg": "Incorrect branch name. Example: feat/RSS-PZ-01_addNewFeature"
+     }
+
+     ```
+  3. Закоммитить изменения
+     ```
+     git add -A
+     git commit -m "chore: add validate-branch-name"
      ```
