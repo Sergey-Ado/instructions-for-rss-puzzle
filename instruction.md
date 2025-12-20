@@ -143,20 +143,25 @@
       git commit -m "chore: add eslint and prettier"
       ```
 ## 3. Установка stylelint and commitlint (по желанию)
-  1. Установить `stylelint` следующей командой
+  1. Установить пакет `stylelint` следующей командой
      ```
      npm create stylelint@latest
      ```
   2. В файле `stylelint.config.mjs` в массив extends добавить `stylelint-config-clean-order`
-  3. Установить `commitlint` следующей командой
+  3. В файле `package.json` прописать следующие скрипты
+     ```
+     "stylelint": "npx stylelint src/**/*.css",
+     "stylelint:fix": "npx stylelint src/**/*.css --fix",
+     ```
+  4. Установить пакет `commitlint` следующей командой
      ```
      npm install -D @commitlint/cli @commitlint/config-conventional
      ```
-  4. Настроить `commitlint` следующей командой
+  5. Настроить `commitlint` следующей командой
      ```
      echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
      ```
-  5. Закоммитить изменения
+  6. Закоммитить изменения
      ```
      git add -A
      git commit -m "chore: add stylelint and commitlint"
@@ -180,7 +185,7 @@
      git commit -m "chore: add validate-branch-name"
      ```
 ## 5. Установка lint-staged
-  1. Установить `lint-staged`
+  1. Установить пакет `lint-staged`
      ```
      npm install --save-dev lint-staged
      ```
@@ -192,9 +197,57 @@
        "src/**/*.html": ["npm run ci:format"]
      }
      ```
-  3. Если `stylelint` не устанавливался, то удалить строку `"src/**/*.css": ["npm run stylelint"],`
+  3. Если пакет `stylelint` не устанавливался, то удалить строку `"src/**/*.css": ["npm run stylelint"],`
   4. Закоммитить изменения
      ```
      git add -A
      git commit -m "chore: add lint-staged"
+     ```
+## 6. Установка hasky
+  1. Установить пакет `husky`
+     ```
+     npm install --save-dev husky
+     ```
+  2. Создать в файле `package.json` следующий скрипт 
+     ```
+     "prepare": "cd .. && husky rss-puzzle/.husky",
+     ```
+  3. Запустить скрипт `prepare`. В папке `rss-puzzle` должна появиться папка `.husky`
+     ```
+     npm run prepare
+     ```
+  4. В папке `.husky` создать файл `pre-commit` и в него вставить следующий текст
+     ```
+     cd rss-puzzle
+     npx lint-staged
+     ```
+  5. В папке `.husky` создать файл `pre-push` и в него вставить следующий текст
+     ```
+     cd rss-puzzle
+     npm run lint
+     npx validate-branch-name
+     ```
+  6. Если был установлен пакет `commmitlint`, то в папке `.husky` создать файл `commit-msg` и в него вставить следующий текст
+     ```
+     cd rss-puzzle
+     npx --no-install commitlint --edit "$1"
+     ```
+  7. Закоммитить изменения
+     ```
+     git add -A
+     git commit -m "chore: add husky"
+     ```
+## Установка gh-pages
+  1. Установить пакет `gh-pages`
+     ```
+     npm install -D gh-pages
+     ```
+  2. Создать в файле `package.json` следующий скрипт
+     ```
+     "deploy": "npm run build && gh-pages -d dist -e rss-puzzle"
+     ```
+  3. Закоммитить изменения
+     ```
+     git add -A
+     git commit -m "chore: add gh-pages"
      ```
