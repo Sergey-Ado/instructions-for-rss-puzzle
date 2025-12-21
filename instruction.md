@@ -72,7 +72,7 @@
       ```
       npm install -D eslint @eslint/compat @eslint/js eslint-config-airbnb-extended eslint-import-resolver-typescript typescript-eslint prettier eslint-plugin-prettier eslint-config-prettier @stylistic/eslint-plugin@^3.1.0 eslint-plugin-import-x
       ```
-   5. Заменить в файле `eslint.config.mj`s текст
+   5. Заменить в файле `eslint.config.mjs` текст
       ```
       // Prettier Config
       {
@@ -100,7 +100,15 @@
         },
       },
       ```
-  6. Добавить правила для Typescript:
+  6. В файле `eslint.config.mjs` добавить в массив `jsConfig` после `...configs.base.recommended,` следующий объект
+     ```
+       {
+         linterOptions: {
+           noInlineConfig: true,
+         },
+       },
+     ```
+  7. Добавить правила для Typescript:
      ```
      // Strict TypeScript Config
      rules.typescript.typescriptEslintStrict,
@@ -112,7 +120,7 @@
        },
      },
      ```
-  7. В папке `rss-puzzle` создать файл `.prettierrc.json` и скопировать в него
+  8. В папке `rss-puzzle` создать файл `.prettierrc.json` и скопировать в него
      ```
      {
        "tabWidth": 2,
@@ -127,17 +135,17 @@
        "endOfLine": "auto"
      }
      ```
-  8. Прописать скрипты:
+  9. Прописать скрипты:
      ```
      "format": "prettier src --write",
      "ci:format": "prettier src --check",
      "lint": "npx eslint src",
-  9. Запустить форматтер:
+  10. Запустить форматтер:
       ```
       npm run format;
       ```
-  10. Удалить содержимое файла `main.ts` и файлы `counter.ts` и `typescript.svg`
-  11. Закоммитить изменения:
+  11. Удалить содержимое файла `main.ts` и файлы `counter.ts` и `typescript.svg`
+  12. Закоммитить изменения:
       ```
       git add -A
       git commit -m "chore: add eslint and prettier"
