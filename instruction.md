@@ -182,7 +182,7 @@
   2. В папке `rss-puzzle` создать файл `.validate-branch-namerc.json` и в него вставить следующий текст
      ```json
      {
-       "pattern": "^(feat|chore)\/RSS-PZ-[0-9]{2}_[a-zA-Z]+$",
+       "pattern": "^(init|feat|fix|refactor|docs|style|chore)\/RSS-PZ-[0-9]{2}_[a-zA-Z]+$",
        "errorMsg": "Incorrect branch name. Example: feat/RSS-PZ-01_addNewFeature"
      }
 
