@@ -147,7 +147,7 @@
      "lint": "npx eslint src",
   10. Запустить форматтер:
       ```
-      npm run format;
+      npm run format
       ```
   11. Удалить содержимое файла `main.ts` и файлы `counter.ts` и `typescript.svg`
   12. Закоммитить изменения:
