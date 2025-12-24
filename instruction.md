@@ -19,16 +19,21 @@
       ```
       cd rss-puzzle
       ```
-   6. Заменить содержимое файла `tsconfig.json` на следующий тексе:
-      ```json
-      {
-        "compilerOptions": {
-          "types": ["vite/client"],
-          "strictNullChecks": true,
-          "strict": true,
-          "noImplicitAny": true
-        }
-      }
+   6. Создать в папке `rss-puzzle` файл `vite.config.js` и поместить в него следующий текст:
+      ```
+      import { defineConfig } from 'vite';
+
+      export default defineConfig({
+        base: './',
+        build: {
+          minify: false,
+        },
+        css: {
+          modules: {
+            localsConvention: 'camelCaseOnly',
+          },
+        },
+      });
       ```
    7. Файлы, сгенеророванные `vite`, лучше не удалять, чтобы на следующем шаге можно было понять заработали ли `lint`, `prettier` и `typescript`
    8. Закоммитить изменения
