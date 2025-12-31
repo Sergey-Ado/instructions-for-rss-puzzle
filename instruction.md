@@ -3,6 +3,9 @@
 ## 1. Создание проекта с помощью Vite
    1. Перейти в корень репозитория, ветка `main`
    2. Создать от ветки `main` новую ветку `rss-puzzle`
+      ```
+      git checkout -b rss-puzzle
+      ```
    3. Создать от ветки `rss-puzzle` новую ветку `chore/RSS-PZ-34_CreateProjectAndInstallPackages`
       ```
       git checkout -b chore/RSS-PZ-34_CreateProjectAndInstallPackages
