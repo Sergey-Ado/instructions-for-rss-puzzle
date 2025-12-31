@@ -46,8 +46,8 @@
    9. Файлы, сгенеророванные `vite`, лучше не удалять, чтобы на следующем шаге можно было понять заработали ли `lint`, `prettier` и `typescript`
    10. Закоммитить изменения
       ```
-        git add -A
-        git commit -m "chore: create project"
+      git add -A
+      git commit -m "chore: create project"
       ```
 ## 2. Установка eslint, prettier и typescript
    1. Запустить
