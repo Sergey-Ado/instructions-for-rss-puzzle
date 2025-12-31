@@ -2,24 +2,25 @@
 
 ## 1. Создание проекта с помощью Vite
    1. Перейти в корень репозитория, ветка `main`
-   2. Создать от ветки `main` новую ветку `chore/RSS-PZ-34_CreateProjectAndInstallPackages`
+   2. Создать от ветки `main` новую ветку `rss-puzzle`
+   3. Создать от ветки `rss-puzzle` новую ветку `chore/RSS-PZ-34_CreateProjectAndInstallPackages`
       ```
       git checkout -b chore/RSS-PZ-34_CreateProjectAndInstallPackages
       ```
-   3. Запустить создание проекта `rss-puzzle` с помощью команды:
+   4. Запустить создание проекта `rss-puzzle` с помощью команды:
       ```
       npm create vite@latest rss-puzzle
       ```
-   4. Выбрать при создании следующие пункты:
+   5. Выбрать при создании следующие пункты:
       - Vanilla
       - TypeScript
       - No
       - Yes
-   5. Перейти в созданную папку `rss-puzzle`:
+   6. Перейти в созданную папку `rss-puzzle`:
       ```
       cd rss-puzzle
       ```
-   6. Создать в папке `rss-puzzle` файл `vite.config.js` и поместить в него следующий текст:
+   7. Создать в папке `rss-puzzle` файл `vite.config.js` и поместить в него следующий текст:
       ```
       import { defineConfig } from 'vite';
 
@@ -35,12 +36,12 @@
         },
       });
       ```
-   6. Удалить из `tsconfig.json` строчку
+   8. Удалить из `tsconfig.json` строчку
       ```
       "erasableSyntaxOnly": true,
       ```
-   7. Файлы, сгенеророванные `vite`, лучше не удалять, чтобы на следующем шаге можно было понять заработали ли `lint`, `prettier` и `typescript`
-   8. Закоммитить изменения
+   9. Файлы, сгенеророванные `vite`, лучше не удалять, чтобы на следующем шаге можно было понять заработали ли `lint`, `prettier` и `typescript`
+   10. Закоммитить изменения
       ```
         git add -A
         git commit -m "chore: create project"
