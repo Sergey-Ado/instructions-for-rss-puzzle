@@ -168,21 +168,25 @@
      ```
      npm create stylelint@latest
      ```
-  2. В файле `stylelint.config.mjs` в массив extends добавить `stylelint-config-clean-order`
-  3. В файле `package.json` прописать следующие скрипты
+  2. Установить `stylelint-config-clean-order` следующей командой
+     ```
+     npm install -D stylelint-config-clean-order
+     ```
+  3. В файле `stylelint.config.mjs` в массив extends добавить `stylelint-config-clean-order`
+  4. В файле `package.json` прописать следующие скрипты
      ```
      "stylelint": "npx stylelint src/**/*.css",
      "stylelint:fix": "npx stylelint src/**/*.css --fix",
      ```
-  4. Установить пакет `commitlint` следующей командой
+  5. Установить пакет `commitlint` следующей командой
      ```
      npm install -D @commitlint/cli @commitlint/config-conventional
      ```
-  5. Настроить `commitlint` следующей командой
+  6. Настроить `commitlint` следующей командой
      ```
      echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
      ```
-  6. Закоммитить изменения
+  7. Закоммитить изменения
      ```
      git add -A
      git commit -m "chore: add stylelint and commitlint"
